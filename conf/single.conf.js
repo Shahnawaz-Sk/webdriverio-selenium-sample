@@ -3,9 +3,15 @@ exports.config = {
     [
       "lambdatest",
       {
-        tunnel: false,
+        tunnel: true,
         lambdatestOpts: {
-          logFile: "tunnel.log"
+          logFile: "./",
+          v:true, 
+          // config:'./config.js'
+          clientcert:'./client.crt',
+          clientkey: './client.key',
+          allowhosts:'google.co.in,youtube.com',
+          mtlshosts: 'google.co.in,youtube.com'
         }
       }
     ]
@@ -22,7 +28,8 @@ exports.config = {
       browserName: "chrome",
       version: "latest",
       name: "Test WebdriverIO Single",
-      build: "WebDriver Selenium Sample"
+      build: "WebDriver Selenium Sample",
+      tunnel:true
     }
     }],
   logLevel: "info",
